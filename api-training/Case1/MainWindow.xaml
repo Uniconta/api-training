@@ -1,0 +1,25 @@
+﻿<Window x:Class="Case1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Case1"
+        mc:Ignorable="d"
+        Title="Login Window" Height="450" Width="800">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+        <Label Content="Uniconta Login Form" FontSize="22" HorizontalAlignment="Center"/>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Label Content="Username:" FontSize="12" />
+            <TextBox Width="150" x:Name="UsernameTextbox" TabIndex="1"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Label Content="Password: " FontSize="12"/>
+            <PasswordBox Width="150" x:Name="PasswordTextbox" TabIndex="2"/>
+        </StackPanel>
+
+        <Button x:Name="LoginBtn" Content="Login" Click="LoginBtn_Click" Margin="60 10 60 0" TabIndex="3"/>
+    </StackPanel>
+</Window>
