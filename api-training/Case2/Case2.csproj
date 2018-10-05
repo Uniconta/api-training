@@ -65,7 +65,14 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="LoggedInWindow.xaml.cs">
+      <DependentUpon>LoggedInWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UnicontaManager.cs" />
+    <Page Include="LoggedInWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
