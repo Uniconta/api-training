@@ -22,6 +22,9 @@ namespace Case2
         public LoggedInWindow()
         {
             InitializeComponent();
+
+            var api = UnicontaManager.CrudAPI;
+
         }
 
         protected override async void OnClosed(EventArgs e)
