@@ -6,7 +6,20 @@
         xmlns:local="clr-namespace:Case2"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+        <Label Content="Uniconta Login Form" FontSize="22" HorizontalAlignment="Center"/>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Label Content="Username:" FontSize="12" />
+            <TextBox Width="150" x:Name="UsernameTextbox" TabIndex="1"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Label Content="Password: " FontSize="12"/>
+            <PasswordBox Width="150" x:Name="PasswordTextbox" TabIndex="2"/>
+        </StackPanel>
+
+        <Button x:Name="LoginBtn" Content="Login" Click="LoginBtn_Click" Margin="60 10 60 0" TabIndex="3"/>
+    </StackPanel>
 </Window>
