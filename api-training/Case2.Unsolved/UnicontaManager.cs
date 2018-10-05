@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Uniconta.API.Service;
-using Uniconta.Common;
-using Uniconta.Common.User;
 
-namespace Case2
+namespace Case2.Unsolved
 {
     public static class UnicontaManager
     {
@@ -18,20 +16,18 @@ namespace Case2
 
         public static void Initialize()
         {
-            Connection = new UnicontaConnection(APITarget.Live);
-            Session = new Session(Connection);
+            // TODO: Initialize UnicontaManager
         }
 
         public static async Task<bool> Login(string username, string password)
         {
-            var result = await Session.LoginAsync(username, password, LoginType.API, APIKey);
-            if (result != ErrorCodes.Succes) return false;
-            return true;
+            // TODO: Program login logic (You can change the return type if you'd like)
+            return false;
         }
 
         public static async Task Logout()
         {
-            await Session.LogOut();
+            // TODO: Program logout logic
         }
 
     }

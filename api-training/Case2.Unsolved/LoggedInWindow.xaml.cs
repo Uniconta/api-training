@@ -10,24 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Case2.Unsolved
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LoggedInWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoggedInWindow : Window
     {
-        public MainWindow()
+        public LoggedInWindow()
         {
             InitializeComponent();
-        }
-
-        private void LoginBtn_Click(object sender, RoutedEventArgs e)
-        {
-            // TODO: Program Login Logic of LoginBtn click
         }
     }
 }
