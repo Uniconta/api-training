@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="Case6.ContentWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Case6"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel Orientation="Horizontal">
+        
+        <StackPanel Margin="50">
+            <ListView x:Name="ItemList" ItemsSource="{Binding Items}" SelectionChanged="ItemList_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock Text="Name: " FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Name}"/>
+                            <TextBlock Text=", " />
+                            <TextBlock Text="Item Nr.: " FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Item}" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        
+        <StackPanel>
+            <Label Content="Times selected item has been sold:"/>
+            <Label Content="{Binding SelectedCount}" />
+        </StackPanel>
+    </StackPanel>
+</UserControl>
