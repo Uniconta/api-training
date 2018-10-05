@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Uniconta.API.Plugin;
 using Uniconta.API.Service;
-using Uniconta.API.System;
-using Uniconta.ClientTools.DataModel;
 using Uniconta.Common;
 
-namespace Case6
+namespace Case6.Unsolved
 {
     public class ItemAggregate : IContentPluginBase
     {
-        public string Name => "";
-        private string error;
-        private CrudAPI crudAPI;
-        private ContentWindow content;
+        public string Name => "Item Aggregate Plugin";
 
         public event EventHandler OnExecute;
 
@@ -30,29 +27,30 @@ namespace Case6
 
         public string GetErrorDescription()
         {
-            return error;
+            return "";
         }
 
         public void Intialize()
         {
         }
 
+        public void OnPageClose()
+        {
+        }
+
+        // TODO: Implement
         public void SetAPI(BaseAPI api)
         {
-            crudAPI = api as CrudAPI;
+            throw new NotImplementedException();
+        }
+
+        // TODO: Implement
+        public void SetContent(System.Windows.Controls.ContentControl control)
+        {
+            throw new NotImplementedException();
         }
 
         public void SetMaster(List<UnicontaBaseEntity> masters)
-        {
-        }
-
-        public void SetContent(System.Windows.Controls.ContentControl control)
-        {
-            this.content = new ContentWindow(crudAPI);
-            control.Content = this.content;
-        }
-
-        public void OnPageClose()
         {
         }
     }
