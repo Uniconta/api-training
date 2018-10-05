@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Uniconta.API.Plugin;
 using Uniconta.API.Service;
 using Uniconta.API.System;
@@ -13,13 +14,12 @@ namespace Case6
         public string Name => "";
         private string error;
         private CrudAPI crudAPI;
-        private List<InvItemClient> Items;
+        private ContentWindow content;
 
         public event EventHandler OnExecute;
 
         public ErrorCodes Execute(UnicontaBaseEntity master, UnicontaBaseEntity currentRow, IEnumerable<UnicontaBaseEntity> source, string command, string args)
         {
-            Items = (List<InvItemClient>)source;
             return ErrorCodes.Succes;
         }
 
@@ -48,7 +48,8 @@ namespace Case6
 
         public void SetContent(System.Windows.Controls.ContentControl control)
         {
-            control.Content = new ContentWindow(Items, crudAPI);
+            this.content = new ContentWindow(crudAPI);
+            control.Content = this.content;
         }
 
         public void OnPageClose()

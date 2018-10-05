@@ -22,23 +22,25 @@ namespace Case6
     /// </summary>
     public partial class ContentWindow : UserControl
     {
-        public List<InvItemClient> Items { get; set; }
-        public int SelectedCount { get; set; }
+        public List<InvItemClient> Items { get; set; } = new List<InvItemClient>();
+        public string SelectedCount { get; set; } = "";
         private CrudAPI CrudAPI { get; set; }
         private DebtorOrderLineClient[] AllOrderLines { get; set; }
 
-        public ContentWindow(List<InvItemClient> items, CrudAPI api)
+        public ContentWindow(CrudAPI api)
         {
-            CrudAPI = api; // Initialize CrudAPI
-            Items = items; // Initialize Item
-            AllOrderLines = CrudAPI.Query<DebtorOrderLineClient>().Result; // Query for all Order Lines
             InitializeComponent();
+            Items = api.Query<InvItemClient>().Result.ToList();
+            ItemList.ItemsSource = Items;
+            AllOrderLines = api.Query<DebtorOrderLineClient>().Result; // Query for all Order Lines
+            ItemList.DisplayMemberPath = "Name";
         }
 
         private void ItemList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var currItem = (InvItemClient)sender;
-            SelectedCount = AllOrderLines.Where(o => o.InvItem.Item.Equals(currItem.Item)).Count();
+            var currItem = (InvItemClient)ItemList.SelectedItem;
+            SelectedCount = AllOrderLines.Where(o => o.InvItem.Item.Equals(currItem.Item)).Count().ToString();
+            CountLabel.Content = SelectedCount;
         }
     }
 }

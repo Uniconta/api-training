@@ -6,27 +6,19 @@
              xmlns:local="clr-namespace:Case6"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
     <StackPanel Orientation="Horizontal">
-        
-        <StackPanel Margin="50">
-            <ListView x:Name="ItemList" ItemsSource="{Binding Items}" SelectionChanged="ItemList_SelectionChanged">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <WrapPanel>
-                            <TextBlock Text="Name: " FontWeight="Bold"/>
-                            <TextBlock Text="{Binding Name}"/>
-                            <TextBlock Text=", " />
-                            <TextBlock Text="Item Nr.: " FontWeight="Bold"/>
-                            <TextBlock Text="{Binding Item}" />
-                        </WrapPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+        <StackPanel Margin="5" Grid.Column="1">
+            <Label Content="Items" FontSize="22"/>
+            <ListView x:Name="ItemList" 
+                      SelectionChanged="ItemList_SelectionChanged" 
+                      Width="250"
+                      Height="250"/>
         </StackPanel>
-        
-        <StackPanel>
-            <Label Content="Times selected item has been sold:"/>
-            <Label Content="{Binding SelectedCount}" />
+
+        <StackPanel Margin="25 50 0 0">
+            <Label Content="Times selected item has been sold:" FontSize="18"/>
+            <Label x:Name="CountLabel" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"/>
         </StackPanel>
     </StackPanel>
 </UserControl>
