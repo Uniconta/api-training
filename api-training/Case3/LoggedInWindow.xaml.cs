@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Uniconta.ClientTools.DataModel;
+using Uniconta.Common;
 
 namespace Case3
 {
@@ -30,9 +32,29 @@ namespace Case3
             base.OnClosed(e);
         }
 
-        private void PopulateBtn_Click(object sender, RoutedEventArgs e)
+        private async void PopulateBtn_Click(object sender, RoutedEventArgs e)
         {
-            // TODO: Program Population logic
+            // Acquire CRUD API
+            var crud = UnicontaManager.CrudAPI;
+
+            // Initialize Item
+            var myItem = new InvItemClient
+            {
+                Item = "109",
+                Name = "Toothbrush",
+                CostPrice = 29.95,
+            };
+
+            // Insert Item
+            var result = await crud.Insert(myItem);
+            if (result != ErrorCodes.Succes)
+            {
+                MessageBox.Show("Unable to insert item. Error: " + result.ToString(), "Error");
+                return;
+            }
+
+            MessageBox.Show("Succesfully inserted item: " + myItem.Item + ", name: " + myItem.Name + "into Uniconta", "Succes");
+
         }
     }
 }
