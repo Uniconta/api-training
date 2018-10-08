@@ -40,8 +40,6 @@ namespace Case2
 
             new LoggedInWindow().Show();
             this.Close();
-
-
         }
     }
 }

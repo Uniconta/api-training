@@ -23,6 +23,23 @@ namespace Case3
         public MainWindow()
         {
             InitializeComponent();
+            UnicontaManager.Initialize();
+        }
+
+        private async void LoginBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var username = UsernameTextbox.Text;
+            var password = PasswordTextbox.Password;
+
+            var loggedIn = await UnicontaManager.Login(username, password);
+            if (!loggedIn)
+            {
+                MessageBox.Show("Failed to log in.", "Error");
+                return;
+            }
+
+            new LoggedInWindow().Show();
+            this.Close();
         }
     }
 }
