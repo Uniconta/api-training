@@ -22,6 +22,8 @@ namespace Case4
     /// </summary>
     public partial class LoggedInWindow : Window
     {
+        private static TableHeaderClient CurrentTableHeader { get; set; }
+
         public LoggedInWindow()
         {
             InitializeComponent();
@@ -36,7 +38,7 @@ namespace Case4
             var crud = UnicontaManager.CrudAPI;
 
             // Initialize table header
-            var tableHeader = new TableHeader
+            var tableHeader = new TableHeaderClient
             {
                 _MenuPosition = 1,              // Customer Menu
                 _Name = "APICourse091018",      // Name of the Table (for the backend)
@@ -54,14 +56,56 @@ namespace Case4
             }
 
             MessageBox.Show("Succesfully inserted table header into Uniconta.\nName: " + tableHeader._Name + "\nPrompt: " + tableHeader._Prompt + "\nUserDefinedID: " + tableHeader._UserDefinedId, "Succes");
-
+            CurrentTableHeader = tableHeader;
         }
 
         /*
          *  This method inserts fields into a table in Uniconta.
          */
-        private void PopulateTable_Click(object sender, RoutedEventArgs e)
+        private async void PopulateTable_Click(object sender, RoutedEventArgs e)
         {
+            // Acquire CRUD API
+            var crud = UnicontaManager.CrudAPI;
+
+            // Initialize new fields
+            var newFields = new List<TableField>
+            {
+                // Foreign Key to Employee Table
+                new TableField
+                {
+                _RefTable = "Employee",
+                _Prompt = "Employee",
+                _Name = "Employee",
+                _FieldType = CustomTypeCode.String,
+
+                },
+
+                // String field naming school of employee
+                new TableField
+                {
+                _Name = "School",
+                _Prompt = "School",
+                _FieldType = CustomTypeCode.String,
+                },
+            };
+         
+            // Loop over newFields and set their master
+            foreach(var field in newFields)
+                field.SetMaster(CurrentTableHeader);
+
+            // Insert newFields in bulk
+            var result = await crud.Insert(newFields);
+            if (result != ErrorCodes.Succes)
+            {
+                MessageBox.Show("Unable to insert fields into table. Error: " + result.ToString(), "Error");
+                return;
+            }
+
+            var msg = String.Format("Succesfully inserted {0} fields into table {1}", newFields.Count, CurrentTableHeader.Name);
+
+            MessageBox.Show(msg, "Succes");
+
+
 
         }
     }

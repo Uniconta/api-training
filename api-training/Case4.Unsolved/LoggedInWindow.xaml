@@ -1,0 +1,13 @@
+﻿<Window x:Class="Case4.Unsolved.LoggedInWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Case4.Unsolved"
+        mc:Ignorable="d"
+        Title="LoggedInWindow" Height="450" Width="800">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Button x:Name="CreateTableBtn" Content="Create Table"  VerticalAlignment="Center" HorizontalAlignment="Center"  Click="CreateTableBtn_Click" Width="100" Padding="5"/>
+        <Button x:Name="PopulateTable" Content="Add Fields" VerticalAlignment="Center" HorizontalAlignment="Center" Click="PopulateTable_Click" Width="100" Padding="5" Margin="10"/>
+    </StackPanel>
+</Window>
