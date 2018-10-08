@@ -13,11 +13,12 @@ This repository contains various training material for the Uniconta API.
       InitializeCompany to select default company for the user or first company and check wether the user has access to a company
       get CrudAPI method, to create a new crudAPI.
 
-  ### case3: Userdefined fields and tables
+  ### case3: Data population
+    Task: Create a button to populate Uniconta with some data. E.g. Items, Debtors or Orders.
+    
+  ### case4: Userdefined fields and tables
     Task: Create button to create table(tableheader)
     Task: Create button to populate the table with fields
-
-  ### case4: Data population
 
 ## IPluginBase:
   ### case5: uniconta indlæsningsværktøj med valg af fil
