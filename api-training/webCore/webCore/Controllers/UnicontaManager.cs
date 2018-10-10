@@ -15,7 +15,7 @@ namespace webCore.Controllers
         public static UnicontaConnection Connection { get; private set; }
         public static Session Session { get; private set; }
         // TODO: Insert API Key
-        private static Guid APIKey { get; set; } = new Guid("428bc0dc-2251-499c-9c02-752e0d8a584c");
+        private static Guid APIKey { get; set; } = new Guid("00000000-0000-0000-0000-000000000000");
         public static CrudAPI CrudAPI { get; private set; }
         public static Company CurrentCompany { get; private set; }
 
