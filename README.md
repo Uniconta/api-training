@@ -2,12 +2,12 @@
 This repository contains various training material for the Uniconta API.
 
 ## standalone:
-  ### case1: uniconta login skærm
+  ### case1: Uniconta login skærm
     Task: create connectivity
     Task: verify login
 
-  ### case2: uniconta API wrapper
-    Task: create a wrapper class for the uniconta API with the following methods:
+  ### case2: Uniconta API wrapper
+    Task: create a wrapper class for the Uniconta API with the following methods:
       init method
       login/logout method
       InitializeCompany to select default company for the user or first company and check wether the user has access to a company
@@ -21,9 +21,9 @@ This repository contains various training material for the Uniconta API.
     Task: Create button to populate the table with fields
 
 ## IPluginBase:
-  ### case5: uniconta indlæsningsværktøj med valg af fil
+  ### case5: Uniconta indlæsningsværktøj med valg af fil (ImportData.csv)
     Task: get lines from file
-    Task: Create Uniconta entities
+    Task: Create Uniconta entities (Sales orderes) from file data
 
 ## IContentbase:
   ### case6: Antal solgt af en item
