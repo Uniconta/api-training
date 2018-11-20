@@ -28,7 +28,7 @@ This repository contains various training material for the Uniconta API.
 ## IContentbase:
   ### case6: Antal solgt af en item
     Task: Create GUI with overview of items
-    Task: Calculate the number of times an item has been solda
+    Task: Calculate the number of times an item has been sold
 
 ## PageEventsBase:
   ### Case7: inventory gem gamle entiteter når en bliver opdateret
