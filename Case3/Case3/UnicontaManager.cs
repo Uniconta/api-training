@@ -11,22 +11,30 @@ using Uniconta.DataModel;
 
 namespace Case3
 {
-    public static class UnicontaManager
+    public class UnicontaManager
     {
-        public static UnicontaConnection Connection { get; private set; }
-        public static Session Session { get; private set; }
+        public UnicontaConnection Connection { get; private set; }
+        public Session Session { get; private set; }
         // TODO: Insert API Key
-        private static Guid APIKey { get; set; } = new Guid("00000000-0000-0000-0000-000000000000");
-        public static CrudAPI CrudAPI { get; private set; }
-        public static Company CurrentCompany { get; private set; }
+        private Guid APIKey { get; set; } = new Guid("00000000-0000-0000-0000-000000000000");
+        public CrudAPI CrudAPI { get; private set; }
+        public Company CurrentCompany { get; private set; }
 
-        public static void Initialize()
+        private static UnicontaManager _instance;
+
+        public static UnicontaManager GetInstance()
+        {
+            if (_instance == null) _instance = new UnicontaManager();
+            return _instance;
+        }
+
+        public void Initialize()
         {
             Connection = new UnicontaConnection(APITarget.Live);
             Session = new Session(Connection);
         }
 
-        public static async Task<bool> Login(string username, string password)
+        public async Task<bool> Login(string username, string password)
         {
             // Attempt to login
             var result = await Session.LoginAsync(username, password, LoginType.API, APIKey);
@@ -41,12 +49,12 @@ namespace Case3
             return true;
         }
 
-        public static async Task Logout()
+        public async Task Logout()
         {
             await Session.LogOut();
         }
 
-        private static async Task InitializeCompany()
+        private async Task InitializeCompany()
         {
             // If Session has a default company, use DefaultComapny as CurrentCompany
             if (Session.DefaultCompany != null)
