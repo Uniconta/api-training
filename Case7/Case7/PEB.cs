@@ -12,13 +12,34 @@ namespace Case7
 {
     public class PEB : PageEventsBase
     {
-        public override ErrorCodes OnUpdate(UnicontaBaseEntity record, UnicontaBaseEntity original)
+        private int numberOfInvoices = 0;
+
+        public override bool OnMenuItemClicked(string ActionType, object sender, object arguments)
         {
-            var clone = StreamingManager.Clone(original);
-            var baserRes =  base.OnUpdate(record, original);
-            (clone as InvItemClient).Item = (clone as InvItemClient).Item + 1;
-            var res = api.Insert(clone).Result;
-            return baserRes;
+            if (ActionType == "PreCreateInvoice")
+            {
+                numberOfInvoices = GetNumberOfInvoices();
+                return base.OnMenuItemClicked(ActionType, sender, arguments);
+            }
+            else if (ActionType == "PostCreateInvoice")
+            {
+                var result = base.OnMenuItemClicked(ActionType, sender, arguments);
+                if (numberOfInvoices < GetNumberOfInvoices())
+                {
+                    //TODO Create CreditorOrderline
+                }
+
+                return result;
+            }
+            else
+            {
+                return base.OnMenuItemClicked(ActionType, sender, arguments);
+            }
+        }
+
+        private int GetNumberOfInvoices()
+        {
+            return api.Query<DebtorInvoiceClient>().Result.Length;
         }
     }
 }
