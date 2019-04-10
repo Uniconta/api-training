@@ -16,6 +16,9 @@ namespace Case7.Unsolved
 
         public override bool OnMenuItemClicked(string ActionType, object sender, object arguments)
         {
+            //TODO: check the Actiontype for correct action
+
+            //TODO: Create creditor orderline given invoice was sent
             return base.OnMenuItemClicked(ActionType, sender, arguments);
         }
 
