@@ -33,3 +33,14 @@ This repository contains various training material for the Uniconta API.
 ## PageEventsBase:
   ### Case7: inventory gem gamle entiteter når en bliver opdateret
     Task: Save old versions of items(with new text) when properties are changed
+
+## Localization:
+  ### Localization: Use the Localization entity to work with Uniconta labels
+  Task: Find localized label
+  Task: Override label
+
+## JournalLoader:
+  ### JournalLoader: Load data into Uniconta and use the posting API to post the journal lines
+    Task: Load data from file
+    Task: Insert data into Uniconta
+    Task: Post (bogør) data
