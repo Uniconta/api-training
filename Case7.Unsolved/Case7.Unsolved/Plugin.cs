@@ -16,11 +16,11 @@ namespace Case7.Unsolved
 
         public override bool OnMenuItemClicked(string ActionType, object sender, object arguments)
         {
-            if (ActionType == "PreGenerateInvoice")
+            if (ActionType == "PreCreateInvoice")
             {
                 numberOfInvoices = GetNumberOfInvoices();
                 return base.OnMenuItemClicked(ActionType, sender, arguments);
-            } else if (ActionType == "PostGenerateInvoice")
+            } else if (ActionType == "PostCreateInvoice")
             {
                 var result = base.OnMenuItemClicked(ActionType, sender, arguments);
                 if (numberOfInvoices < GetNumberOfInvoices())
