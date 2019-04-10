@@ -36,8 +36,8 @@ This repository contains various training material for the Uniconta API.
 
 ## Localization:
   ### Localization: Use the Localization entity to work with Uniconta labels
-  Task: Find localized label
-  Task: Override label
+    Task: Find localized label
+    Task: Override label
 
 ## JournalLoader:
   ### JournalLoader: Load data into Uniconta and use the posting API to post the journal lines
