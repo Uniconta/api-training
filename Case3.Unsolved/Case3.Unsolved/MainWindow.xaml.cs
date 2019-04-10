@@ -23,7 +23,7 @@ namespace Case3.Unsolved
         public MainWindow()
         {
             InitializeComponent();
-            UnicontaManager.Initialize();
+            UnicontaManager.GetInstance().Initialize();
         }
 
         private async void LoginBtn_Click(object sender, RoutedEventArgs e)
@@ -31,7 +31,7 @@ namespace Case3.Unsolved
             var username = UsernameTextbox.Text;
             var password = PasswordTextbox.Password;
 
-            var loggedIn = await UnicontaManager.Login(username, password);
+            var loggedIn = await UnicontaManager.GetInstance().Login(username, password);
             if (!loggedIn)
             {
                 MessageBox.Show("Failed to log in.", "Error");

@@ -28,14 +28,14 @@ namespace Case3
 
         protected override async void OnClosed(EventArgs e)
         {
-            await UnicontaManager.Logout();
+            await UnicontaManager.GetInstance().Logout();
             base.OnClosed(e);
         }
 
         private async void PopulateBtn_Click(object sender, RoutedEventArgs e)
         {
             // Acquire CRUD API
-            var crud = UnicontaManager.CrudAPI;
+            var crud = UnicontaManager.GetInstance()CrudAPI;
 
             // Initialize Item
             var myItem = new InvItemClient
