@@ -16,7 +16,7 @@ namespace Case3
         public UnicontaConnection Connection { get; private set; }
         public Session Session { get; private set; }
         // TODO: Insert API Key
-        private Guid APIKey { get; set; } = new Guid("00000000-0000-0000-0000-000000000000");
+        private Guid APIKey { get; set; } = new Guid("00000000-0000-0000-0000-00000000000");
         public CrudAPI CrudAPI { get; private set; }
         public Company CurrentCompany { get; private set; }
 

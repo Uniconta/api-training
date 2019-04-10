@@ -35,7 +35,7 @@ namespace Case3
         private async void PopulateBtn_Click(object sender, RoutedEventArgs e)
         {
             // Acquire CRUD API
-            var crud = UnicontaManager.GetInstance()CrudAPI;
+            var crud = UnicontaManager.GetInstance().CrudAPI;
 
             // Initialize Item
             var myItem = new InvItemClient
@@ -43,6 +43,7 @@ namespace Case3
                 Item = "109",
                 Name = "Toothbrush",
                 CostPrice = 29.95,
+                SalesPrice1 = 100.00,
             };
 
             // Insert Item

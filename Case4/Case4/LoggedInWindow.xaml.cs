@@ -41,10 +41,9 @@ namespace Case4
             var tableHeader = new TableHeaderClient
             {
                 _MenuPosition = 1,              // Customer Menu
-                _Name = "APICourse091018",      // Name of the Table (for the backend)
+                _Name = "APICourse20190410",      // Name of the Table (for the backend)
                 _Prompt = "API-Course 091018",  // Promp (Name in the menu)
                 _UserDefinedId = 1928,          // Some arbitrary user defined ID I have assigned.
-
             };
 
             // Insert table header
@@ -65,7 +64,7 @@ namespace Case4
         private async void PopulateTable_Click(object sender, RoutedEventArgs e)
         {
             // Acquire CRUD API
-            var crud = UnicontaManager.GetIntsance().CrudAPI;
+            var crud = UnicontaManager.GetInstance().CrudAPI;
 
             // Initialize new fields
             var newFields = new List<TableField>
@@ -73,11 +72,10 @@ namespace Case4
                 // Foreign Key to Employee Table
                 new TableField
                 {
-                _RefTable = "Employee",
-                _Prompt = "Employee",
-                _Name = "Employee",
-                _FieldType = CustomTypeCode.String,
-
+                    _RefTable = "Employee",
+                    _Prompt = "Employee",
+                    _Name = "Employee",
+                    _FieldType = CustomTypeCode.String,
                 },
 
                 // String field naming school of employee
@@ -95,6 +93,7 @@ namespace Case4
 
             // Insert newFields in bulk
             var result = await crud.Insert(newFields);
+
             if (result != ErrorCodes.Succes)
             {
                 MessageBox.Show("Unable to insert fields into table. Error: " + result.ToString(), "Error");

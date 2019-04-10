@@ -46,11 +46,11 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Uniconta.Common, Version=1.0.6889.11936, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Uniconta.Common.1.1.78\lib\portable40-net40+win8\Uniconta.Common.dll</HintPath>
+    <Reference Include="Uniconta.Common, Version=1.0.7008.14129, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Uniconta.Common.1.1.80\lib\portable40-net40+win8\Uniconta.Common.dll</HintPath>
     </Reference>
     <Reference Include="Uniconta.WindowsAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Uniconta.WindowsAPI.1.1.78\lib\net45\Uniconta.WindowsAPI.dll</HintPath>
+      <HintPath>..\packages\Uniconta.WindowsAPI.1.1.80.1\lib\net452\Uniconta.WindowsAPI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Uniconta.API.System;
 using Uniconta.ClientTools.DataModel;
+using Uniconta.Common;
+using Uniconta.DataModel;
 
 namespace Case6
 {
@@ -26,6 +28,7 @@ namespace Case6
         public string SelectedCount { get; set; } = "";
         private CrudAPI CrudAPI { get; set; }
         private DebtorOrderLineClient[] AllOrderLines { get; set; }
+        public SQLCache inventoryCache { get; set; }
 
         public ContentWindow(CrudAPI api)
         {
@@ -34,6 +37,7 @@ namespace Case6
             ItemList.ItemsSource = Items;
             AllOrderLines = api.Query<DebtorOrderLineClient>().Result; // Query for all Order Lines
             ItemList.DisplayMemberPath = "Name";
+            inventoryCache = api.CompanyEntity.LoadCache(typeof(InvItem), api, true).Result;
         }
 
         private void ItemList_SelectionChanged(object sender, SelectionChangedEventArgs e)

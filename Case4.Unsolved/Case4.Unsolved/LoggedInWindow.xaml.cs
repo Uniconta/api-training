@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Uniconta.ClientTools.DataModel;
 using Uniconta.DataModel;
 
 namespace Case4.Unsolved
@@ -28,7 +29,7 @@ namespace Case4.Unsolved
         /*
          *  This method creates a table and inserts it into Uniconta.
          */
-        private void CreateTableBtn_Click(object sender, RoutedEventArgs e)
+        private async void CreateTableBtn_Click(object sender, RoutedEventArgs e)
         {
             // Acquire CRUD API
 

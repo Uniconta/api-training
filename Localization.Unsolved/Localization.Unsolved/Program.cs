@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Security;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Uniconta.API.Service;
 using Uniconta.Common;
 using Uniconta.Common.User;
-using Uniconta.ClientTools;
-using System.Threading.Tasks;
 
-namespace Localization
+namespace Localization.Unsolved
 {
     class Program
     {
@@ -41,12 +42,8 @@ namespace Localization
             #endregion
 
             // TODO: Create a localization and make a lookup
-            var loc = Uniconta.ClientTools.Localization.GetLocalization(Language.da);
-            Console.WriteLine(loc.Lookup("Debtor"));
 
             // TODO: Override a label and look it up
-            loc.AddLabel("Debtor", "Kunde");
-            Console.WriteLine(loc.Lookup("Debtor"));
 
             Exit();
             return;
@@ -87,4 +84,3 @@ namespace Localization
 
     }
 }
-
