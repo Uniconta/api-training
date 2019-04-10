@@ -16,24 +16,7 @@ namespace Case7.Unsolved
 
         public override bool OnMenuItemClicked(string ActionType, object sender, object arguments)
         {
-            if (ActionType == "PreCreateInvoice")
-            {
-                numberOfInvoices = GetNumberOfInvoices();
-                return base.OnMenuItemClicked(ActionType, sender, arguments);
-            } else if (ActionType == "PostCreateInvoice")
-            {
-                var result = base.OnMenuItemClicked(ActionType, sender, arguments);
-                if (numberOfInvoices < GetNumberOfInvoices())
-                {
-                    //TODO Create CreditorOrderline
-                }
-
-                return result;
-            }
-            else
-            {
-                return base.OnMenuItemClicked(ActionType, sender, arguments);
-            }
+            return base.OnMenuItemClicked(ActionType, sender, arguments);
         }
 
         private int GetNumberOfInvoices()
