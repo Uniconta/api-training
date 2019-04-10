@@ -16,7 +16,7 @@ namespace Case3.Unsolved
 
         protected override async void OnClosed(EventArgs e)
         {
-            await UnicontaManager.Logout();
+            await UnicontaManager.GetInstance().Logout();
             base.OnClosed(e);
         }
 

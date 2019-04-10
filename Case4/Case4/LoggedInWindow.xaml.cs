@@ -35,7 +35,7 @@ namespace Case4
         private async void CreateTableBtn_Click(object sender, RoutedEventArgs e)
         {
             // Acquire CRUD API
-            var crud = UnicontaManager.CrudAPI;
+            var crud = UnicontaManager.GetInstance().CrudAPI;
 
             // Initialize table header
             var tableHeader = new TableHeaderClient
@@ -65,7 +65,7 @@ namespace Case4
         private async void PopulateTable_Click(object sender, RoutedEventArgs e)
         {
             // Acquire CRUD API
-            var crud = UnicontaManager.CrudAPI;
+            var crud = UnicontaManager.GetIntsance().CrudAPI;
 
             // Initialize new fields
             var newFields = new List<TableField>
@@ -88,7 +88,7 @@ namespace Case4
                 _FieldType = CustomTypeCode.String,
                 },
             };
-         
+
             // Loop over newFields and set their master
             foreach(var field in newFields)
                 field.SetMaster(CurrentTableHeader);
