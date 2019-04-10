@@ -1,0 +1,3 @@
+Date(dd-MM-yyyy);Account;AccountType;Amount
+10-04-2019;1010;Finance;200,00
+10-04-2019;1020;Finance;-200,00

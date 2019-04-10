@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +13,7 @@ using Uniconta.ClientTools;
 using Uniconta.ClientTools.DataModel;
 using Uniconta.Common;
 
-namespace JournalLoader
+namespace JournalLoader.Unsolved
 {
     public class JournalLoaderPlugin : IPluginBase
     {
@@ -29,56 +28,32 @@ namespace JournalLoader
         public ErrorCodes Execute(UnicontaBaseEntity master, UnicontaBaseEntity currentRow, IEnumerable<UnicontaBaseEntity> source, string command, string args)
         {
             // Plugin must be installed on Control: GL_DailyJournal
+
             var journal = currentRow as GLDailyJournalClient;
-            Crud.LoadCache(typeof(DebtorClient)).Wait();
 
             // TODO: Change Path
-            using (TextFieldParser parser = new TextFieldParser(@"C:\Users\Alexander Banks\api-training\JournalLoader\JournalLoader\Data.csv"))
+            using (TextFieldParser parser = new TextFieldParser(@"[FULL PATH TO DATA.CSV]"))
             {
                 parser.TextFieldType = FieldType.Delimited;
                 parser.SetDelimiters(";");
                 // Read the first line to get rid of header
                 parser.ReadFields();
 
-                var loc = Localization.GetLocalization(Language.da);
-
-                var newJournalLines = new List<GLDailyJournalLineClient>();
                 while (!parser.EndOfData)
                 {
                     //Process row
                     string[] fields = parser.ReadFields();
                     // TODO: Process fields
-                    var date = DateTime.ParseExact(fields[0], "dd-MM-yyyy", CultureInfo.InvariantCulture);
-                    var account = fields[1];
-                    var accountType = loc.Lookup(fields[2]);
-                    var amount = double.Parse(fields[3], CultureInfo.GetCultureInfo("da"));
 
-                    var journalLine = new GLDailyJournalLineClient
-                    {
-                        // TODO: Insert properties from fields[]
-                        Date = date,
-                        Account = account,
-                        _Account = account,
-                        AccountType = accountType,
-                        Amount = amount,
-                    };
-                    journal.Account = account;
-                    journalLine.SetMaster(journal);
-                    journal.Account = account;
-                    newJournalLines.Add(journalLine);
                 }
 
-                // Done parsing file. Insert new journal lines.
-                var result = Crud.Insert(newJournalLines).Result;
-                if (result != ErrorCodes.Succes)
-                {
-                    // TODO: Do Error Handling.
-                    return result;
-                }
+                // TODO insert new GLDailyJournalLines
+
 
                 // Post Journals
                 var postingAPI = new PostingAPI(Crud);
-                var res = postingAPI.PostDailyJournal(journal, DateTime.Now, "My Fine Comment", newJournalLines.Count, lines: newJournalLines).Result;
+
+                // TODO Post (Bogfør) newly created GLDailyJournalLines
 
             }
             return ErrorCodes.Succes;
