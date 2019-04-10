@@ -23,13 +23,13 @@ namespace Case2
         {
             InitializeComponent();
 
-            var api = UnicontaManager.CrudAPI;
+            var api = UnicontaManager.GetInstance().CrudAPI;
 
         }
 
         protected override async void OnClosed(EventArgs e)
         {
-            await UnicontaManager.Logout();
+            await UnicontaManager.GetInstance().Logout();
             base.OnClosed(e);
         }
     }
