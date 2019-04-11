@@ -19,7 +19,7 @@ namespace ConsoleAppDebitor
 
         static async Task MainAsync()
         {
-            var key = new Guid("00000000-0000-0000-0000-000000000000");
+            var key = new Guid("69a53f30-a1b0-4d79-b6ea-ba2d36e1585f");
 
             #region LOGIN-PROCESS
             var con = new UnicontaConnection(APITarget.Live);
@@ -60,67 +60,68 @@ namespace ConsoleAppDebitor
 
             Console.Write("Expression = [search] [query]");
             var expression = Console.ReadLine();
-            var command = expression.Split()[0];
-            var param = expression.Split()[1];
+            //var command = expression.Split()[0];
+            //var param = expression.Split()[1];
 
-            switch (command)
-            {
-                case "search":
-                    foreach (var d in debtors.Where(d => d.Name != null && d.Name.ToLower().Contains(param)))
-                    {
-                        Console.WriteLine($"{d.Account} | {d.Name}");
-                    }
-                    break;
-            }
-
-
-
-            Console.Write("Enter debtor account: ");
-            var debtorAccount = Console.ReadLine();
-
-            var debtor = new DebtorClient { Account = debtorAccount };
-            await crud.Read(debtor);
-
-            Console.Write("Enter item id: ");
-            var itemId = Console.ReadLine();
-
-            var item = new InvItemClient { Item = itemId };
-            await crud.Read(item);
-
-            Console.WriteLine("Generating sales order...");
-
-            DebtorOrderClient order = null;
-            order = (await crud.Query<DebtorOrderClient>(debtor)).FirstOrDefault();
-            if (order == null)
-            {
-                order = new DebtorOrderClient { };
-                order.SetMaster(debtor);
-                await crud.Insert(order);
-            }
+            //switch (command)
+            //{
+            //    case "search":
+            //        foreach (var d in debtors.Where(d => d.Name != null && d.Name.ToLower().Contains(param)))
+            //        {
+            //            Console.WriteLine($"{d.Account} | {d.Name}");
+            //        }
+            //        break;
+            //}
 
 
-            var orderLine = new DebtorOrderLineClient
-            {
-                Item = item.Item,
-                Qty = 1,
-            };
-            orderLine.SetMaster(order);
-            var fp = new FindPrices(order, crud);
-            fp.UseCustomerPrices = true;
-            fp.loadPriceList();
-            fp.SetPriceFromItem(orderLine, item);
 
-            await crud.Insert(orderLine);
+            //Console.Write("Enter debtor account: ");
+            //var debtorAccount = Console.ReadLine();
+
+            //var debtor = new DebtorClient { Account = debtorAccount };
+            //await crud.Read(debtor);
+
+            //Console.Write("Enter item id: ");
+            //var itemId = Console.ReadLine();
+
+            //var item = new InvItemClient { Item = itemId };
+            //await crud.Read(item);
+
+            //Console.WriteLine("Generating sales order...");
+
+            //DebtorOrderClient order = null;
+            //order = (await crud.Query<DebtorOrderClient>(debtor)).FirstOrDefault();
+            //if (order == null)
+            //{
+            //    order = new DebtorOrderClient { };
+            //    order.SetMaster(debtor);
+            //    await crud.Insert(order);
+            //}
+
+
+            //var orderLine = new DebtorOrderLineClient
+            //{
+            //    Item = item.Item,
+            //    Qty = 1,
+            //};
+            //orderLine.SetMaster(order);
+            //var fp = new FindPrices(order, crud);
+            //fp.UseCustomerPrices = true;
+            //fp.loadPriceList();
+            //fp.SetPriceFromItem(orderLine, item);
+
+            //await crud.Insert(orderLine);
 
             #endregion
 
-            // TODO: Create a localization and make a lookup
-            var loc = Uniconta.ClientTools.Localization.GetLocalization(Language.da);
-            Console.WriteLine(loc.Lookup("Debtor"));
 
-            // TODO: Override a label and look it up
-            loc.AddLabel("Debtor", "Kunde");
-            Console.WriteLine(loc.Lookup("Debtor"));
+            var newField = new TableFieldsClient
+            {
+                Name = "SomeField11",
+            };
+            newField.SetMaster(new DebtorOrderClient());
+            var res = await crud.Insert(newField);
+            Console.WriteLine(res);
 
             Exit();
             return;
