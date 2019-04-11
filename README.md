@@ -31,8 +31,14 @@ This repository contains various training material for the Uniconta API.
     Task: Calculate the number of times an item has been sold
 
 ## PageEventsBase:
-  ### Case7: inventory gem gamle entiteter når en bliver opdateret
-    Task: Save old versions of items(with new text) when properties are changed
+  ### Case7: Using events to hook into the invoice flow, creating purchase orders when a debtorOrder is invoiced
+    Task: Hook into the flow of the correct event
+    
+## ClientTools
+  ### Case8: Set quantity of freight to the sum of the quantity of items
+    Task: Hook into the flow of inputting the orderline
+    Task: Get the orderlines from the page field
+    Task: Set the quantity to the sum of the quantity of the lines
 
 ## Localization:
   ### Localization: Use the Localization entity to work with Uniconta labels
