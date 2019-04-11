@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{80B78A20-D50B-4F71-B8DB-0FF7086E2978}</ProjectGuid>
+    <ProjectGuid>{D5B9A098-511C-42F9-AE87-4DCC42A6D6EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Case8.Unsolved</RootNamespace>
-    <AssemblyName>Case8.Unsolved</AssemblyName>
+    <RootNamespace>aarhusDevexpress</RootNamespace>
+    <AssemblyName>aarhusDevexpress</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\..\..\Uniconta\Pluginpath\</OutputPath>
+    <OutputPath>..\..\..\..\..\..\Uniconta\Pluginpath\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -32,13 +32,33 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ClientTools">
-      <HintPath>..\..\..\..\..\AppData\Local\Apps\2.0\1ZK82976.B3K\4WO9HDYC.HMB\unic..tion_dd77585f529d7ed6_0001.0000_953b2c2389a30494\ClientTools.dll</HintPath>
+      <HintPath>..\..\..\..\AppData\Local\Apps\2.0\1ZK82976.B3K\4WO9HDYC.HMB\unic..tion_dd77585f529d7ed6_0001.0000_953b2c2389a30494\ClientTools.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\AppData\Local\Apps\2.0\1ZK82976.B3K\4WO9HDYC.HMB\unic..tion_dd77585f529d7ed6_0001.0000_953b2c2389a30494\DevExpress.Data.v18.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\AppData\Local\Apps\2.0\1ZK82976.B3K\4WO9HDYC.HMB\unic..tion_dd77585f529d7ed6_0001.0000_953b2c2389a30494\DevExpress.Mvvm.v18.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\AppData\Local\Apps\2.0\1ZK82976.B3K\4WO9HDYC.HMB\unic..tion_dd77585f529d7ed6_0001.0000_953b2c2389a30494\DevExpress.Xpf.Core.v18.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Xpf.Grid.v18.2">
-      <HintPath>..\..\..\..\..\AppData\Local\Apps\2.0\1ZK82976.B3K\4WO9HDYC.HMB\unic..tion_dd77585f529d7ed6_0001.0000_953b2c2389a30494\DevExpress.Xpf.Grid.v18.2.dll</HintPath>
+      <HintPath>..\..\..\..\AppData\Local\Apps\2.0\1ZK82976.B3K\4WO9HDYC.HMB\unic..tion_dd77585f529d7ed6_0001.0000_953b2c2389a30494\DevExpress.Xpf.Grid.v18.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Xpf.Grid.v18.2.Core">
-      <HintPath>..\..\..\..\..\AppData\Local\Apps\2.0\1ZK82976.B3K\4WO9HDYC.HMB\unic..tion_dd77585f529d7ed6_0001.0000_953b2c2389a30494\DevExpress.Xpf.Grid.v18.2.Core.dll</HintPath>
+      <HintPath>..\..\..\..\AppData\Local\Apps\2.0\1ZK82976.B3K\4WO9HDYC.HMB\unic..tion_dd77585f529d7ed6_0001.0000_953b2c2389a30494\DevExpress.Xpf.Grid.v18.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Layout.v18.2.Core, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\AppData\Local\Apps\2.0\1ZK82976.B3K\4WO9HDYC.HMB\unic..tion_dd77585f529d7ed6_0001.0000_953b2c2389a30494\DevExpress.Xpf.Layout.v18.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.LayoutControl.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\AppData\Local\Apps\2.0\1ZK82976.B3K\4WO9HDYC.HMB\unic..tion_dd77585f529d7ed6_0001.0000_953b2c2389a30494\DevExpress.Xpf.LayoutControl.v18.2.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -50,6 +70,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,14 +88,25 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Plugin.cs" />
+    <Compile Include="Models\CustomDataGrid.cs" />
+    <Compile Include="Models\GridViewModel.cs" />
+    <Compile Include="PluginControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\GridView1.xaml.cs">
+      <DependentUpon>GridView1.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DC\API\OIOUBL\Classes to export\Resources\OIOUBL_Invoice_Schematron.xsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\GridView1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
